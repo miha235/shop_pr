@@ -1,5 +1,7 @@
 # Настройки для джанго проекта
 from pathlib import Path
+import os
+
 
 # текущая дериктория нашего проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,11 +55,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
+
+'''Задание 1
+Подключите СУБД PostgreSQL для работы в проекте, для этого:
+
+Создайте базу данных в ручном режиме.
+Внесите изменения в настройки подключения.'''
+
 # Настройки для базы данных с которой будет работать джанго проект
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3', # по умолчанию при миграциях создается этот файл
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Shop', # по умолчанию при миграциях создается этот файл
+        'USER': 'postgres',
+        'PASSWORD':'SbOg10Dk',
+        'HOST':'127.0.0.1',
+        'PORT': '5432'
     }
 }
 
@@ -86,6 +100,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/' # важная переменная
 
-STATICFILES_DIRS = (BASE_DIR / 'static',) # настройка пути
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR / 'static',),
+    ]
+# настройка пути
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
