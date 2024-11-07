@@ -13,9 +13,9 @@ SECRET_KEY = 'django-insecure-z)s+t7jhx-56!(t2u=+b+%+y=d9via*l57_j2ioa+(%@!z7z6n
 DEBUG = True
 
 # для айпишников и доменов тех адресов которые имеют доступ к нашему приложению
-ALLOWED_HOSTS = ['*'] # *  для открытия доступа для всех
+ALLOWED_HOSTS = ['*']  # *  для открытия доступа для всех
 
-INSTALLED_APPS = [ # тут можно дописывать приложения которые мы будем регистрировать
+INSTALLED_APPS = [  # тут можно дописывать приложения которые мы будем регистрировать
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +56,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-
 '''Задание 1
 Подключите СУБД PostgreSQL для работы в проекте, для этого:
 
@@ -67,10 +66,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Shop', # по умолчанию при миграциях создается этот файл
+        'NAME': 'Shop',  # по умолчанию при миграциях создается этот файл
         'USER': 'postgres',
-        'PASSWORD':'SbOg10Dk',
-        'HOST':'127.0.0.1',
+        'PASSWORD': 'SbOg10Dk',
+        'HOST': '127.0.0.1',
         'PORT': '5432'
     }
 }
@@ -90,7 +89,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us' # различные настройки языка и пр
+LANGUAGE_CODE = 'en-us'  # различные настройки языка и пр
 
 TIME_ZONE = 'UTC'
 
@@ -98,15 +97,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/' # важная переменная
+STATIC_URL = 'static/'  # важная переменная
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR / 'static',),
-    ]
+]
 # настройка пути
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
