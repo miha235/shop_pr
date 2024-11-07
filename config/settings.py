@@ -1,6 +1,7 @@
 # Настройки для джанго проекта
 from pathlib import Path
 import os
+import environ
 
 
 # текущая дериктория нашего проекта
@@ -63,14 +64,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 Внесите изменения в настройки подключения.'''
 
 # Настройки для базы данных с которой будет работать джанго проект
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Shop',  # по умолчанию при миграциях создается этот файл
-        'USER': 'postgres',
-        'PASSWORD': 'SbOg10Dk',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST', default='localhost'),
+        'PORT': env('DB_PORT', default='5432'),
     }
 }
 
