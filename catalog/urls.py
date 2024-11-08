@@ -9,5 +9,5 @@ app_name = NewappConfig.name
 urlpatterns = [
     path('', home, name='home'),
     path('contacts/', contacts, name='contacts'),
-    path ( 'product/<int:pk>/' , views.product_detail , name = 'product_detail' ),
+    path ( 'product/' , views.product_detail , name = 'product_detail' ),
 ]

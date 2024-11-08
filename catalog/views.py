@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from typing import Dict , Any
+
+from django.shortcuts import render
 from .models import Product
 
 def home(request):
@@ -7,10 +9,9 @@ def home(request):
 def contacts(request):
     return render(request, 'contacts.html')
 
-
-def product_detail(request,pk):
+def product_detail(request):
     # Забираем все объекты товара
     product = Product.objects.all()
     # Передаем объект в шаблон через контекст
-    context = {'product': product}
+    context: dict[str, Any] = {'product': product}
     return render(request, 'product_detail.html', context )
