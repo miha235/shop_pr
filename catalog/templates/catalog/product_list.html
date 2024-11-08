@@ -1,9 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'catalog/base.html' %}
 {% load media_path %}
 {% block content %}
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for product in object_list %}
         <div class="col">
           <div class="card shadow-sm">
             <img class="card-img-top" src="{{ product.image|mymedia }}">
@@ -13,14 +14,13 @@
               <p><strong>Цена:</strong> ${{ product.price }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:product_detail' product.pk %}">Посмотреть</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
