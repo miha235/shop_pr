@@ -3,10 +3,10 @@ from django import template
 register = template.Library()
 
 @register.filter()
-def mymedia(data):
+def mymedia(path):
     """
     Преобразует путь изображения, добавляя '/media/' в начало для корректного доступа.
     """
-    if data:
-        return f'/media/{data}'
+    if path:
+        return f'/media/{path}'
     return '#'
