@@ -1,0 +1,13 @@
+<!-- templates/blog/blogpost_confirm_delete.html -->
+{% extends 'blog/blog_base.html' %}
+
+{% block content %}
+  <h1>Удалить статью "{{ blogpost.title }}"?</h1>
+  <p>Вы уверены, что хотите удалить эту статью?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+    <a href="{% url 'blog:blogpost_delete' slug=blogpost.slug %}"></a>
+    <a class="btn btn-sm btn-outline-secondary"  href="{% url 'blog:blogpost_detail' slug=blogpost.slug %}">Отмена</a>
+  </form>
+{% endblock %}

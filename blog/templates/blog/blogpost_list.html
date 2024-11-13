@@ -1,0 +1,15 @@
+<!-- templates/blog/blogpost_list.html -->
+{% extends 'blog/blog_base.html' %}
+
+{% block content %}
+  <h1>Список статей</h1>
+
+
+  <ul>
+    {% for post in blogposts %}
+      <li>
+        <a href="{% url 'blog:blogpost_detail' slug=post.slug %}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

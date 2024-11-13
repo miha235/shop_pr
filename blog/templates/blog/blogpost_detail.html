@@ -1,0 +1,19 @@
+<!-- templates/blog/blogpost_detail.html -->
+{% extends 'blog/blog_base.html' %}
+
+{% block content %}
+<h1>{{ blogpost.title }}</h1>
+<p>{{ blogpost.content }}</p>
+<img src="{{ blogpost.preview_image.url }}" alt="preview image">
+
+{% if blogpost.is_published %}
+  <p>Статья опубликована</p>
+{% else %}
+<p>Статья не опубликована</p>
+{% endif %}
+<div class="btn-group">
+  <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:blogpost_list' %}" >Назад</a>
+  <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:blogpost_update' slug=blogpost.slug %}">Редактировать</a> |
+  <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:blogpost_delete' slug=blogpost.slug %}">Удалить</a>
+</div>
+{% endblock %}

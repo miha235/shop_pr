@@ -1,0 +1,23 @@
+<!-- templates/blog/blogpost_form.html -->
+{% extends 'blog/blog_base.html' %}
+
+{% block content %}
+  <h1>
+    {% if object %}
+    Редактировать
+    {% else %}
+    Создать
+    {% endif %}
+    статью</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">
+      {% if object %}
+      Сохранить
+      {% else %}
+      Создать
+      {% endif %}
+    </button>
+  </form>
+{% endblock %}
