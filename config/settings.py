@@ -3,7 +3,6 @@ from pathlib import Path
 import os
 import environ
 
-
 # текущая дериктория нашего проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,6 +24,7 @@ INSTALLED_APPS = [  # тут можно дописывать приложени�
     'django.contrib.staticfiles',
     'catalog',
     'blog.apps.BlogConfig',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -113,3 +113,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+AUTH_USER_MODEL = 'users.User'
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Victoria23miha@gmail.com'  # email
+EMAIL_HOST_PASSWORD = 'SbOg10Dk'  # Пароль
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
