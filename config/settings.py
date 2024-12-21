@@ -22,6 +22,7 @@ INSTALLED_APPS = [  # тут можно дописывать приложени�
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     "catalog",
     "blog.apps.BlogConfig",
     "users",
@@ -129,3 +130,5 @@ EMAIL_HOST_USER = "v_23_d_1989@mail.ru"  # email
 EMAIL_HOST_PASSWORD = "ZrWzRQ299n78jEZrCnQr"  # Пароль
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+LOGIN_REDIRECT_URL = 'users/login'
